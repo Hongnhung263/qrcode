@@ -34,13 +34,13 @@
           return;
         }
 
-        const sUrl =$("#sUrl").val();
+        const sUrl =$("#url").val();
         console.log(sUrl);
 
         if(sUrl === undefined && sUrl === "")
         {
           alert("Please enter a valid url.");
-          $("#Url").focus();
+          $("#url").focus();
           return;
         }
         g_qrcode.makeCode(sUrl);
@@ -52,8 +52,7 @@
   <body>
   <input id="url" type="text" style="width:80%" />
   <input type="button" value="Generate QR Code" onclick="makeCode()"/>
-    <input id="text" type="text" style="width:80%" />
-    <br />
+  <br />
   <div id="qrcode" style="width:400px; height:400px; margin-top:15px;"></div>
 </body>
 </html>
