@@ -13,7 +13,12 @@
       function window_onload()
       {
         $("#url").val("http://hongnhung263.github.io/qrcode/scan/parse.html?param1=AMB&param2=11617&param3=led");
-
+        $("#url").on("keydown", function(e) {
+              if(e.keyCode == 13)
+            {
+              makeCode();
+            }
+        });
         let divQRcode = document.getElementById("qrcode");
 
         const qrcodeConfig ={
