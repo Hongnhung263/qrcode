@@ -6,28 +6,29 @@
     <script type="text/javascript" src="../gen/scripts/qrcode.js"></script>
   
     <script>
-    Let g_qrcode = null;
+      let g_qrcode = null;
 
       windown.onload= window_onload;
+
       function windown_onload()
       {
-        ${"#url"}.val("http://hongnhung263.github.io/qrcode/scan/parse.html?param1=AMB&param2=11617&param3=led");
+        $("#url").val("http://hongnhung263.github.io/qrcode/scan/parse.html?param1=AMB&param2=11617&param3=led");
 
-      Let divQRcode = document.getElementById("qrcode");
+        let divQRcode = document.getElementById("qrcode");
 
-      const qrcodeConfig ={
-        width:400,
-        height :400
-      };
+        const qrcodeConfig ={
+          width:400,
+          height :400
+        };
 
-      g_qrcode= new QRcode(
-        divQRcode,
-        qrcodeConfig
-      );
-    }
-    
-       function makeCode()
-       {
+        g_qrcode= new QRcode(
+          divQRcode,
+          qrcodeConfig
+        );
+      }
+
+      function makeCode()
+      {
         if(g_qrcode === null)
         {
           return;
@@ -42,24 +43,17 @@
           $("#Url").focus();
           return;
         }
-      g_qrcode.makeCode(sUrl);
-       }
-      
-      windown.onload = windown.onload;
-      
-      function windown_onload()
-      {
-        document.getElementById("url").value="http://hongnhung263"
-
+        g_qrcode.makeCode(sUrl);
       }
+      
     </script>
   </head>
 
   <body>
   <input id="url" type="text" style="width:80%" />
-  <input type="button" value="Generate QR Code" anclick=""makeCode()*/>
+  <input type="button" value="Generate QR Code" onclick="makeCode()"/>
     <input id="text" type="text" style="width:80%" />
     <br />
-  <div id="qrcode" style="width:100px; height:100px; margin-top:15px;"></div>
+  <div id="qrcode" style="width:400px; height:400px; margin-top:15px;"></div>
 </body>
 </html>
