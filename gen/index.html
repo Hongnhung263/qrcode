@@ -2,47 +2,41 @@
 <html>
   <head>
     <title>Generate QR CODE</title>
-    <script type ="text/javascript" src="../jquery/1.11.3/jquery.min.js"></script>
-    <script type="text/javascript" src="../gen/scripts/qrcode.js"></script>
-  
+    <script type="text/javascript" src="../jquery/1.11.3/jquery.min.js"></script>
+    <script type="text/javascript" src="./scripts/qrcode.js"></script>
     <script>
-      let g_qrcode = null;
-
+      let g_qrcode= null;
       window.onload= window_onload;
-
       function window_onload()
       {
         $("#url").val("http://hongnhung263.github.io/qrcode/scan/parse.html?param1=AMB&param2=11617&param3=led");
-        $("#url").on("keydown", function(e) {
-              if(e.keyCode == 13)
-            {
-              makeCode();
-            }
+        $("#url").on("keydown",function(e) {
+          if(e.keyCode == 13)
+          {
+            makeCode();
+          }
         });
-        let divQRcode = document.getElementById("qrcode");
+        let divQRcode= document.getElementById("qrcode");
 
-        const qrcodeConfig ={
+        const qrcodeConfig={
           width:400,
-          height :400
+          height: 400
         };
-
         g_qrcode= new QRCode(
           divQRcode,
           qrcodeConfig
         );
       }
-
-      function makeCode()
+      function makecode()
       {
         if(g_qrcode === null)
         {
           return;
         }
-
         const sUrl =$("#url").val();
         console.log(sUrl);
 
-        if(sUrl === undefined && sUrl === "")
+        if(sUrl ===undefined && sUrl ==="")
         {
           alert("Please enter a valid url.");
           $("#url").focus();
@@ -50,14 +44,12 @@
         }
         g_qrcode.makeCode(sUrl);
       }
-      
+
     </script>
   </head>
-
-  <body>
-  <input id="url" type="text" style="width:80%" />
-  <input type="button" value="Generate" onclick="makeCode()"/>
+  <input id="url" type="text" style="width:80%"/>
+  <input type="button" value="Generate QR CODE" onclick="makeCode()"/>
   <br />
-  <div id="qrcode" style="width:400px; height:400px; margin-top:15px;"></div>
+  <div id="qrcode" style="width:400px; height:400px; margin-top:15px;" ></div>
 </body>
 </html>
